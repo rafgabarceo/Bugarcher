@@ -1,0 +1,21 @@
+{
+    "name": "gabarceo/bugtracker",
+    "description": "LBYCPG2 Project",
+    "type": "project",
+    "license": "GPLV3",
+    "authors": [
+        {
+            "name": "Rafael Gabriel Arceo",
+            "email": "rafael_gabriel_arceo@dlsu.edu.ph"
+        },
+        {
+            "name": "Kalvin Yap",
+            "email": "kalvin_yap@dlsu.edu.ph"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twbs/bootstrap": "dev-main",
+        "fortawesome/font-awesome": "dev-master"
+    }
+}
