@@ -18,7 +18,7 @@
             $passwordErr = "Password field is empty. ";
         }
 
-        if(!empty($_POST["password"]) && !empty($_POST["email"])){
+        if(dbCheck($_POST["email"], password_hash($_POST["password"], PASSWORD_BCRYPT))){
             header("Location: home.php");
         }
     }
@@ -39,10 +39,10 @@
     <div class="row">
         <form action="<?php echo htmlspecialchars($_['PHP_SELF'])?>" method='post'>
             <div class="col-sm">
-                <input type="text" name="email" placeholder="Email"/> <?php echo '<i class="text-danger">'.$emailErr.'</i>'; ?>
+                <input type="text" class="form-control" name="email" placeholder="Email"/> <?php echo '<i class="text-danger">'.$emailErr.'</i>'; ?>
             </div>
             <div class="col-sm">
-                <input type="password" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordError.'</i>'; ?>
+                <input type="password" class="form-control" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordError.'</i>'; ?>
             </div>
             <div class="col-sm">
                 <input type="submit" placeholder="Login"/>
@@ -52,8 +52,6 @@
 </div>
 </body>
 </html>
-
-
 
 <?php 
 
