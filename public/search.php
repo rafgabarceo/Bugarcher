@@ -31,9 +31,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
         <?php require_once("../resources/config.php"); 
-            require_once("../resources/templates/header.php");
+           require_once("templates/header.php");
         
         ?>
     </head>

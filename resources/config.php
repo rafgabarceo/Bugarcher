@@ -1,6 +1,6 @@
 <?php 
 
-    echo '<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <script type="text/JavaScript" src="assets/bootstrap/js/bootstrap.min.js"></script>';
+    echo '<link rel="stylesheet" href="../public/assets/bootstrap/css/bootstrap.min.css">
+    <script type="text/JavaScript" src="../public/assets/bootstrap/js/bootstrap.min.js"></script>';
 
  ?>
