@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Bug Archer</a>
         <div class="collapse navbar-collapse">
@@ -17,5 +17,7 @@
             </form>
             <a name="login" id="" class="btn btn-primary" href="public/login.php" role="button">Login</a>
         </div>
+        
     </div>
 </nav>
+
