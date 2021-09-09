@@ -6,6 +6,7 @@
     } 
 
 ?>
+
 <?php 
 
     $emailErr = $passwordErr = "";
@@ -18,7 +19,7 @@
             $passwordErr = "Password field is empty. ";
         }
 
-        if(dbCheck($_POST["email"], password_hash($_POST["password"], PASSWORD_BCRYPT))){
+        if(dbCheck($_POST["email"], $_POST["password"])){
             header("Location: home.php");
         }
     }
@@ -64,27 +65,21 @@
     }    
 
     function dbCheck($email, $password){
-        $validate = 0b00;
-        $check = false; 
-        $conn = new mysqli("127.0.0.1", "root", "", "bugtracker");
-        $stmt = $conn->prepare("SELECT `email`, `password` FROM user WHERE email=? AND `password`=?");
-        if($stmt){
-            $stmt->bind_param('ss', $email, $password);
-            $stmt->execute();
-        }
-        $result = $stmt->get_result()->fetch_array();
-        if(!empty($result)){
-            $validate = 0b01; 
-        } else {
-            echo "Error in login. Are you registered?";
-        }
-    }
 
-    if($validate == 0b01){
-        $check = true;
-    }
+        $conn = new mysqli("127.0.0.1", "root", "", "bugtracker");
+        $stmt = $conn->prepare("SELECT `email`, `password` FROM user WHERE `email`=?");
+
+        if($stmt){
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+        } else {
+            echo "Error!";
+        }
+
+        $result = $stmt->get_result()->fetch_array();
+        $passwordhash = $result['password'];
 
     $conn->close();
-    return $check;
-   
+    return password_verify($password, $passwordhash);
+    }
 ?>
