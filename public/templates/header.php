@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php 
+
+    session_start();
+
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
 
     <div class="container-fluid">
@@ -48,11 +53,11 @@
 
             
 
-            <form class="d-flex" action="public/search.php" method="post">
+            <form class="d-flex" action="public/search.php" method="get">
 
                 <input class="ml-auto form-control me-2" type="search" placeholder="Bug ID" aria-label="Search" name="query">
                 
-                <div class = "mx-auto" style = "width:115px;">
+                <div class = "mx-auto">
 
                     <input class="ml-auto btn btn-primary" type="submit"></input>
 
@@ -61,16 +66,19 @@
                 }
 
             </form>
-
-            <a name="login" id="" class="btn btn-primary" href="public/login.php" role="button">Login</a>
-
-        </div>
-
-        <div class = "mx-auto" style = "width:813px;">
-
-            <button type="button" class="btn btn-primary">Register</button>
+                <?php if(!isset($_SESSION["email"])){
+                    echo '<a name="login" id="" class="btn btn-primary" href="public/login.php" role="button">Login</a>';
+                }?>
 
         </div>
+                <?php if(!isset($_SESSION["email"])){
+                    echo '<div class = "mx-auto">
+
+                            <button type="button" class="btn btn-primary">Register</button>
+
+                        </div>';
+                } ?>
+
 
         
     </div>
