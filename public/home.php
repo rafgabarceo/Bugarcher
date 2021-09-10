@@ -1,6 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+
 <?php 
 
     session_start();
+    require_once("../resources/config.php");
+    require_once("templates/header.php");
+
     if(!isset($_SESSION["email"])){
         echo "<h1> You are not logged in! </h1>";
         die();
@@ -27,7 +36,6 @@
     }
 
     $userDetails = $stmt->get_result()->fetch_array();
-    print_r($userDetails);
     
     unset($stmt);
 
@@ -40,7 +48,6 @@
     }
 
     $projectDetails = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    print_r($projectDetails);
 
     unset($stmt);
 
@@ -53,10 +60,60 @@
     }
     
     $bugDetails = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    echo "<br/><br/>";
-    foreach($bugDetails as $detail){
-        print_r($detail);
-    }
 
     unset($stmt);
+
+    $conn->close();
 ?>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <?php echo '<h1>'.$userDetails['username'].'</h1>';?>
+                    </div>
+                    <div class="card-content p-3">
+                        This is where various options such as add new bug, etc etc should be.
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card p-2">
+                    <div class="card-header mb-2">
+                        <h1>
+                            <?php echo "Logged in at ".date('Y/m/d @ h:i:sa')."";?>
+                        </h1>
+                    </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>
+                                    Projects
+                                </h2>
+                            </div>
+                            <div class="card-content p-3">
+                                The list of projects go here. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>
+                                    Bugs
+                                </h2>
+                            </div>
+                            <div class="card-content p-3">
+                                The list of recent bugs go here.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
