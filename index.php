@@ -13,11 +13,11 @@
         <title>LBYCPG2 Bug Tracker</title>
         <?php require_once("resources/config.php"); ?>
         <?php require_once("public/templates/header.php");?>
-        <?php require_once("public/templates/footer.php");?>
     <body>
         <?php 
             $var = $_SERVER["DOCUMENT_ROOT"];
             echo $var;
         ?> 
+        <?php require_once("public/templates/footer.php");?>
     </body>
 </html>
