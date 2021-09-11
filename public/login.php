@@ -1,6 +1,11 @@
 <?php 
 
-    session_start();
+
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+
     if(isset($_SESSION["email"])){
         header("Location: home.php");
     } 
@@ -21,7 +26,7 @@
 
         if(dbCheck(formatData($_POST["email"]), $_POST["password"])){
             $_SESSION["email"] = $_POST["email"]; // sets the SESSION variable.
-            header("Location: home.php");
+            header("Location: /public/home.php");
         }
     }
 
@@ -48,7 +53,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordErr.'</i>'; ?>
             </div>
             <div class="col-sm">
-                <input type="submit" placeholder="Login"/>
+                <input type="submit"/>
             </div>
         </form>
     </div>
