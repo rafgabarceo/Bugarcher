@@ -53,7 +53,7 @@
 
             
 
-            <form class="d-flex" action="public/search.php" method="get">
+            <form class="d-flex" action="/public/search.php" method="get">
 
                 <input class="ml-auto form-control me-2" type="search" placeholder="Bug ID" aria-label="Search" name="query">
                 
@@ -67,20 +67,18 @@
 
             </form>
                 <?php if(!isset($_SESSION["email"])){
-                    echo '<a name="login" id="" class="btn btn-primary" href="public/login.php" role="button">Login</a>';
+                    echo '<a name="login" id="" class="btn btn-primary" href="/public/login.php" role="button">Login</a>';
                 }?>
 
         </div>
                 <?php if(!isset($_SESSION["email"])){
                     echo '<div class = "mx-auto">
 
-                            <button type="button" class="btn btn-primary">Register</button>
+                            <button type="button" class="btn btn-primary" href="/public/register.php">Register</button>
 
                         </div>';
                 } ?>
 
-
-        
     </div>
 
 </nav>
