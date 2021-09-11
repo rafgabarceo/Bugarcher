@@ -33,7 +33,8 @@
         Login
     </title>
     <?php require_once("../resources/config.php");
-    require_once("templates/header.php"); ?>
+    require_once("templates/header.php");
+    require_once("templates/footer.php"); ?>
 </head>
 <body>
 <div class="container">
