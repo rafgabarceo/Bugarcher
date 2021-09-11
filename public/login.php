@@ -19,7 +19,7 @@
             $passwordErr = "Password field is empty. ";
         }
 
-        if(dbCheck($_POST["email"], $_POST["password"])){
+        if(dbCheck(formatData($_POST["email"]), $_POST["password"])){
             $_SESSION["email"] = $_POST["email"]; // sets the SESSION variable.
             header("Location: home.php");
         }
