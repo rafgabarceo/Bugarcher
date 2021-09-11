@@ -2,7 +2,7 @@
 
     session_start();
     if(isset($_SESSION["email"])){
-        header("Location: /public/home.php");
+        header("Location: public/home.php");
     }
 
 ?>
@@ -20,6 +20,6 @@
             $var = $_SERVER["DOCUMENT_ROOT"];
             echo $var;
         ?> 
-        <?php require_once("/public/templates/footer.php");?>
+        <?php require_once("public/templates/footer.php");?>
     </body>
 </html>
