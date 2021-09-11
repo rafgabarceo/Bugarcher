@@ -1,8 +1,8 @@
 <?php 
 
     session_start();
-    if(isset($_SESSION["username"])){
-        header("Location: public/home.php");
+    if(isset($_SESSION["email"])){
+        header("Location: /public/home.php");
     }
 
 ?>
@@ -18,6 +18,6 @@
             $var = $_SERVER["DOCUMENT_ROOT"];
             echo $var;
         ?> 
-        <?php require_once("public/templates/footer.php");?>
+        <?php require_once("/public/templates/footer.php");?>
     </body>
 </html>
