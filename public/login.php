@@ -44,7 +44,7 @@
                 <input type="text" class="form-control" name="email" placeholder="Email"/> <?php echo '<i class="text-danger">'.$emailErr.'</i>'; ?>
             </div>
             <div class="col-sm">
-                <input type="password" class="form-control" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordError.'</i>'; ?>
+                <input type="password" class="form-control" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordErr.'</i>'; ?>
             </div>
             <div class="col-sm">
                 <input type="submit" placeholder="Login"/>
