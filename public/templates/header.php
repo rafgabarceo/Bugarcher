@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 
-    session_start();
+
 
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
@@ -15,7 +15,7 @@
 
         <a href = "#" class = "pull-left">
 
-            <img src = "https://i.ibb.co/GvVmKCR/bow-and-arrow.png"/>
+            <img src = "https://i.ibb.co/C1ZJZ6X/32.png"/>
 
         </a>
 
