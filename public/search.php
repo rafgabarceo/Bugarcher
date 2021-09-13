@@ -1,25 +1,26 @@
 <?php 
 
     $result = "";
-    $query = $_POST["query"];
+    $query = $_GET['query'];
     $conn = new mysqli("127.0.0.1", "root", "", "bugtracker");
     if($conn->connect_errno){
         echo "<script type='text/JavaScript'> console.log ('Error in DB Connection...') </script>";
         exit();
     }
 
-    $stmt = $conn->prepare("SELECT `bug_id`, `project_id`, `branch`, `status`, `information`, `hardware_information`, `bug`.`user_id`, `user`.`username` FROM `bug` 
+    $stmt = $conn->prepare("SELECT `bug_id`, `project_id`, `status`, `information`, `hardware_information`,`created_at`, `bug`.`user_id`, `user`.`username` FROM `bug` 
             INNER JOIN `user` ON `bug`.`user_id`=`user`.`user_id` WHERE bug_id=?");
 
     if($stmt){
         $stmt->bind_param("i", $query);
         $stmt->execute();
     } else {
-        echo "<script type='text/JavaScript'> console.log ('Error in prepared statement...') </script>";
+        echo "<script type='text/JavaScript'> console.log ('Error in prepared statement...".$conn->error."') </script>";
         exit();
     }
 
     $results = $stmt->get_result()->fetch_array(MYSQLI_ASSOC);
+    print_r($results);
 
 ?>
 
@@ -38,18 +39,23 @@
     </head>
     <body>
         <div class="row">
-            <?php searchCard($results['username'], "", "", ""); ?>
+            <div class="col m-5">
+                <?php searchCard($results['bug_id'], $results['information'], $results['username'], $results['created_at']); ?>
+            </div>
         </div>
         <script src="" async defer></script>
     </body>
 </html>
 <?php 
-    function searchCard($title, $project, $username, $id){
+    function searchCard($title, $project, $username, $date){
     echo '
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">'.$title.'</h4>
-                <p class="card-text">$project</p>
+        <div class="card" style="width: 50rem;">
+            <div class="card-header">
+                <a href="/public/bugPage.php/?bug_id='.$title.'"><h4 class="card-title"> Bug ID: '.$title.'</h4></a>
+                <h5 class="card-subtitle text-muted"> Filed by: '.$username.' and created on '.$date.'</h5>
+            </div>
+            <div class="card-text p-3"> 
+                <p class="card-text">'.$project.'</p>
             </div>
         </div> ';     
     }
