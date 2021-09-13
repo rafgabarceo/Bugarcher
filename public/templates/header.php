@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky"> 
 
     <div class="container-fluid">
 
@@ -28,7 +28,7 @@
 
                 <div class = "mx-auto" style = "width:70px;">
 
-                    <a class="nav-link" href="#" >Home</a>
+                    <a class="nav-link" href="/" >Home</a>
 
                 </div>
 

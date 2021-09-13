@@ -15,20 +15,22 @@ Here is a good example of what we are trying to emulate: https://bugzilla.redhat
 </head>
 <body>
 <?php
-
+    $bugInfo;
     if(!empty($_GET['bug_id'])){
 
         $id = htmlspecialchars($_GET['bug_id']);
         $conn = new mysqli("127.0.0.1", "root", "", "bugtracker");
         if(!$conn){
-            echo "Error in database. Refer: ".$conn->error;
+            echo "<h1>Error in database. Refer: ".$conn->error."</h1>";
+
             die();
         } 
-            $stmt = $conn->prepare("SELECT bug.*, `username` FROM bug, user WHERE bug_id=? AND email=?");
+            $stmt = $conn->prepare("SELECT bug.*, `username` FROM bug, user WHERE bug_id=?");
         if($stmt){
-            $stmt->bind_param("is", $id, $_SESSION["email"]);
+            $stmt->bind_param("i", $id);
             $stmt->execute();
         } else {
+            
             echo "Error in statement prepartion. Refer: ".$conn->error;
         }
         $bugInfo = $stmt->get_result()->fetch_array(MYSQLI_ASSOC);
@@ -39,8 +41,7 @@ Here is a good example of what we are trying to emulate: https://bugzilla.redhat
     } elseif(isset($_SESSION['prevBug'])){
         $bugInfo = $_SESSION['prevBug'];
     } else {
-       echo "Erorr in query.";
-       header("Location: /public/home.php");
+       echo "Error in query.".$conn->error;
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['description'])){
