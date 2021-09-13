@@ -135,7 +135,7 @@
                             <div class="row p-3">
                                 <div class="col">
                                     <h3 class="d-inline">Hardware information</h3> <?php echo "<i class='d-inline text-danger'>".$hwinfoErr."</i>"?>
-                                    <textarea type="text" name ="hardware_information"class="form-control" rows=5 placeholder="Hardware information. Include operating system, etc. etc." name="bug_hwinfo"></textarea> 
+                                    <textarea type="text" name ="hardware_information" class="form-control" rows=5 placeholder="Hardware information. Include operating system, etc. etc."></textarea> 
                                 </div>
                             </div>
                             <div class="row p-3">
@@ -194,11 +194,11 @@
                                                 echo "<div class='container-fluid'>";
                                                 echo "<li class='list-group-item' data-toggle='tooltip' data-placement='top' title='".$bug['information']."'><h5 class='p-3'>".$bug['title']."</h5>";
                                                 if($bug["status"] == "open"){
-                                                    echo "<button type='button' class='btn btn-warning m-2'>Open</button>";
+                                                    echo "<button type='button' class='btn btn-warning m-2' onclick='window.open(`/public/bugPage.php/?bug_id=".$bug['bug_id']."`)'>Open</button>";
                                                     echo "<button type='button' class='btn btn-secondary m-2'>Belongs to project #".$bug["project_id"]."</button>";
                                                     echo "<i>Bug filed at ".$bug["created_at"]."</i>";
                                                 } else {
-                                                    echo "<button type='button' class='btn btn-success ml-auto'>Closed</button>";
+                                                    echo "<button type='button' class='btn btn-success ml-auto' '>Closed</button>";
                                                     echo "<i>Bug filed at ".$bug["created_at"]." and closed at ".$bug["closed_at"]."</i>";
                                                 }
                                                 echo "</li></div>";
