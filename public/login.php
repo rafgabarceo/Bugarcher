@@ -42,7 +42,8 @@
 </head>
 <body>
 <div class="container">
-    <h1>Login</h1>
+    <div class="card mt-5">
+    <h1 class="card-header p-5">Login</h1>
     <div class="row">
         <form action="<?php echo htmlspecialchars($_['PHP_SELF'])?>" method='post'>
             <div class="col-sm">
@@ -51,10 +52,11 @@
             <div class="col-sm">
                 <input type="password" class="form-control" name="password" placeholder="Password"/> <?php echo '<i class="text-danger">'.$passwordErr.'</i>'; ?>
             </div>
-            <div class="col-sm">
-                <input type="submit"/>
+            <div class="d-flex justify-content-center col-sm">
+                <input class='btn btn-primary ml-auto' type="submit" value="Login"/>
             </div>
         </form>
+    </div>
     </div>
 </div>
 </body>
