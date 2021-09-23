@@ -64,9 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php require_once("../resources/config.php");
     require_once("templates/header.php"); ?>
 </head>
-<div class="container">
+<div class="container pt-5 w-50">
     <h1>Registration</h1>
-    <div class="row">
+    <div class="row pt-3">
         <form method='post' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>'>
             <div class="col">
                 <input type="text" class="form-control" name="username" placeholder="Username" /><?php echo '<i class="text-danger">' . $userErr . '</i>'; ?>

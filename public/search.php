@@ -20,7 +20,7 @@
     }
 
     $results = $stmt->get_result()->fetch_array(MYSQLI_ASSOC);
-    print_r($results);
+    // print_r($results);
 
 ?>
 

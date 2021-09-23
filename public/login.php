@@ -45,7 +45,7 @@
     <div class="card mt-5">
     <h1 class="card-header p-5">Login</h1>
     <div class="row">
-        <form action="<?php echo htmlspecialchars($_['PHP_SELF'])?>" method='post'>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])?>" method='post'>
             <div class="col-sm">
                 <input type="text" class="form-control" name="email" placeholder="Email"/> <?php echo '<i class="text-danger">'.$emailErr.'</i>'; ?>
             </div>

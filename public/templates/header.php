@@ -68,9 +68,17 @@
                 <?php if(!isset($_SESSION["email"])){
                     echo '<div class = "mx-auto">
 
-                            <button type="button" class="btn btn-primary" href="/public/register.php">Register</button>
+                            <a role="button" class="btn btn-primary" href="/public/register.php">Register</a>
 
                         </div>';
+                } ?>
+
+                <?php if(isset($_SESSION["email"])){
+                    echo '<div class = "mx-auto">
+
+                            <a role="button" class="btn btn-primary" href="/public/logout.php">Logout</a>
+
+                    </div>';
                 } ?>
 
     </div>

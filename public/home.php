@@ -11,7 +11,7 @@
     require_once("templates/header.php");
 
     if(!isset($_SESSION["email"])){
-        echo "<h1> You are not logged in! </h1>";
+        echo "<h1> You are not logged in! </h2>";
         die();
     } 
     $conn = new mysqli("127.0.0.1", "root", "", "bugtracker");
