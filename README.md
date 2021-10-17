@@ -1,2 +1,2 @@
-# LBYCPG2 Tracker
-For development purposes, be sure to run a composer update before utilizing. The bootstrap css and javascript is removed from git to avoid inflation of the project. 
+# BugArcher - A bug tracking project written in PHP
+This project is for educational purposes only. It is recommended that the user utilize Bugzilla instead for professional or personal use.  
